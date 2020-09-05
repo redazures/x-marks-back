@@ -4,8 +4,10 @@ one:
   name: MyString
   email: MyString
   age: 1
+  creditcard: 1
 
 two:
   name: MyString
   email: MyString
   age: 1
+  creditcard: 1

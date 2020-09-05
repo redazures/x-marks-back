@@ -4,6 +4,7 @@ class CreateMembers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.integer :age
+      t.integer :creditcard
 
       t.timestamps
     end
