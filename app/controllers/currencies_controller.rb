@@ -4,4 +4,9 @@ class CurrenciesController < ApplicationController
         currency = Currency.all
         render json: currency
     end
+
+    # def show
+    #     currency = Currency.all
+    #     render json: currency
+    # end
 end

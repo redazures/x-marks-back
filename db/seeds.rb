@@ -16,9 +16,9 @@ puts "run time! let's go go go"
 # Currency.create(price:5.00,symbol:"SCHB", name:"Schrute Buck")
 # Currency.create(price:5.00,symbol:"STLNK", name:"Stanley Nickle")
 
-users="steveD,greg,alexS,Tashawn,IanG,James,IanR,Jennifer,Alex,Junko,RyanW,Karan,SeMin,JakeL,Brian,Devin,Muhtasim,Josh,DavidKir,Amit,JakeM,Victor,Kevin,RyanF,Vincent,DavidK,Ward,Codyd,RyanL,Matthew,Gregory,Codyc,Mimi,Minelie,Joseph,Samuel,Sawandi,Iuri,Jzavier,Israel,Vlad,Teddy"
-users=users.split(",")
-users.each{|u|User.create(name:u, email:"#{u}@flat.com")}
+# users="steveD,greg,alexS,Tashawn,IanG,James,IanR,Jennifer,Alex,Junko,RyanW,Karan,SeMin,JakeL,Brian,Devin,Muhtasim,Josh,DavidKir,Amit,JakeM,Victor,Kevin,RyanF,Vincent,DavidK,Ward,Codyd,RyanL,Matthew,Gregory,Codyc,Mimi,Minelie,Joseph,Samuel,Sawandi,Iuri,Jzavier,Israel,Vlad,Teddy"
+# users=users.split(",")
+# users.each{|u|Member.create(name:u, email:"#{u}@flat.com",age:rand(20..40),creditcard:rand(10000000..99999999))}
 
 countries={
 "AED"=>"United Arab Emirates Dirham",
@@ -64,7 +64,7 @@ countries={
 "EGP"=>"Egypt Pound",
 "ERN"=>"Eritrea Nakfa",
 "ETB"=>"Ethiopia Birr",
-"EUR"=>"Euro Member Countries",
+"EUR"=>"Euro (European Union)",
 "FJD"=>"Fiji Dollar",
 "FKP"=>"Falkland Islands (Malvinas) Pound",
 "GBP"=>"United Kingdom Pound",
@@ -184,18 +184,18 @@ countries={
 "ZMW"=>"Zambia Kwacha",
 "ZWD"=>"Zimbabwe Dollar",
 }
-response=RestClient.get('https://api.exchangeratesapi.io/latest?base=USD')
-result=JSON.parse(response.body)
-rates=result["rates"]
-rates = rates.sort
-rates.each do |k,v|
-    # puts k
-    # puts v
-    # puts countries[k]
-    Currency.create(price:v,symbol:k, name:countries[k])
-end
+# response=RestClient.get('https://api.exchangeratesapi.io/latest?base=USD')
+# result=JSON.parse(response.body)
+# rates=result["rates"]
+# rates = rates.sort
+# rates.each{|k,v| Currency.create(price:v,symbol:k, name:countries[k])}
 # binding.pry
+# 500.times do
+#     cur = Currency.all.sample
+#     Transaction.create(price:cur.price,member_id:Member.all.sample.id,currency_id:cur.id,serial:Time.now.to_i,leg1:true)
+# end
 
-
+p Transaction.count
+p Member.count
 p Currency.count
 p "Cash Money"
