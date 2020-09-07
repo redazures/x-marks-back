@@ -5,7 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
       t.integer :member_id
       t.integer :currency_id
       t.integer :serial
-      t.boolean :leg1
+      t.integer :quantity
 
       t.timestamps
     end

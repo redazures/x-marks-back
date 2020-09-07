@@ -5,11 +5,11 @@ one:
   member_id: 1
   currency_id: 1
   serial: 1
-  leg1: false
+  quantity: 1
 
 two:
   price: 1
   member_id: 1
   currency_id: 1
   serial: 1
-  leg1: false
+  quantity: 1
