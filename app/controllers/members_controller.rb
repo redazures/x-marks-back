@@ -9,7 +9,7 @@ class MembersController < ApplicationController
         if member
             # render json: member.to_json(include: [:transactions, :currencies])
             render json: member.to_json(:include => {
-                :transactions => {:only => [:id,:quantity]},
+                :transactions => {:only => [:currency_id,:quantity]},
                 :currencies => {:except => [:updated_at]}
               }, :except => [:created_at,:updated_at])
           else
