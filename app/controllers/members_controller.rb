@@ -16,4 +16,13 @@ class MembersController < ApplicationController
             render json: { message: 'member not found' }
         end
     end
+
+    def create
+        member=Member.create!(member_params)
+        render json: member
+    end
+
+    def member_params
+        params.require(:member).permit(:name,:email,:age,:creditcard)
+    end
 end
