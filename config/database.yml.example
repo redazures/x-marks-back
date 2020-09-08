@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: x_marks_back_development
+  host: localhost
+  user: your-postgres-username
+  password: your-postgres-usernames-password
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
