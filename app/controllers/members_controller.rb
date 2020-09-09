@@ -11,8 +11,8 @@ class MembersController < ApplicationController
             render json: member.to_json(:include => {
                 :transactions => {:only => [:currency_id,:quantity,:price]},
                 :currencies => {:except => [:updated_at]}
-              }, :except => [:created_at,:updated_at])
-          else
+            }, :except => [:created_at,:updated_at])
+        else
             render json: { message: 'member not found' }
         end
     end
