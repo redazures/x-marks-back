@@ -4,8 +4,10 @@ one:
   price: 1.5
   symbol: MyString
   name: MyString
+  image: MyString
 
 two:
   price: 1.5
   symbol: MyString
   name: MyString
+  image: MyString

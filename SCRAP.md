@@ -1,7 +1,7 @@
 class CurrenciesController < ApplicationController
 
     def index
-        currency = Currency.all.sort
+        currency = Currency.all
         render json: currency
     end
 
@@ -29,3 +29,8 @@ class CurrenciesController < ApplicationController
         params.require(:currency).permit(:price,:symbol,:name)
     end
 end
+
+    has_many :transactions
+    has_many :members, through: :transactions
+    validates :name, uniqueness: true
+    validates :symbol, uniqueness: true
