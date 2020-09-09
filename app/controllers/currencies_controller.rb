@@ -17,7 +17,8 @@ class CurrenciesController < ApplicationController
 
     def update
         currency=Currency.find_by(id: params[:id])
-        currency=currency.update!(currency_params)
+        currency.update(currency_params)
+        
         render json: currency
     end
 
