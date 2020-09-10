@@ -34,3 +34,25 @@ end
     has_many :members, through: :transactions
     validates :name, uniqueness: true
     validates :symbol, uniqueness: true
+-------------------------------------------------------------------
+    class TransactionsController < ApplicationController
+   def index
+      transactions = Transaction.all
+      render json: transactions, except: [:created_at, :updated_at]
+   end
+
+   def create
+      transaction=Transaction.create!(transaction_params)
+      render json: transaction
+   end
+
+   def transaction_params
+      params.require(:transaction).permit(:price,:member_id,:currency_id,:serial,:quantity)
+   end
+
+end
+
+class Transaction < ApplicationRecord
+   belongs_to :member
+   belongs_to :currency
+end

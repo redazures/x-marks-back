@@ -16,7 +16,7 @@ puts "run time! let's go go go"
 # Currency.create(price:5.00,symbol:"SCHB", name:"Schrute Buck")
 # Currency.create(price:5.00,symbol:"STLNK", name:"Stanley Nickle")
 
-users="steveD,greg,alexS,Tashawn,IanG,James,IanR,Jennifer,Alex,Junko,RyanW,Karan,SeMin,JakeL,Brian,Devin,Muhtasim,Josh,DavidKir,Amit,JakeM,Victor,Kevin,RyanF,Vincent,DavidK,Ward,Codyd,RyanL,Matthew,Gregory,Codyc,Mimi,Minelie,Joseph,Samuel,Sawandi,Iuri,Jzavier,Israel,Vlad,Teddy"
+users="Jules,Taevon,Csatherine,steveD,greg,alexS,Tashawn,IanG,James,IanR,Jennifer,Alex,Junko,RyanW,Karan,SeMin,JakeL,Brian,Devin,Muhtasim,Josh,DavidKir,Amit,JakeM,Victor,Kevin,RyanF,Vincent,DavidK,Ward,Codyd,RyanL,Matthew,Gregory,Codyc,Mimi,Minelie,Joseph,Samuel,Sawandi,Iuri,Jzavier,Israel,Vlad,Teddy"
 users=users.split(",")
 users.each{|u|Member.create(name:u, email:"#{u}@flat.com",age:rand(20..40),creditcard:rand(10000000..99999999))}
 
@@ -193,7 +193,7 @@ rates.each{|k,v| Currency.create(price:v,symbol:k, name:countries[k][0],image:co
 Member.all.each do |m|
     10.times do
         cur = Currency.all.sample
-        Transaction.create(price:cur.price,member_id:m.id,currency_id:cur.id,serial:Time.now.to_i,quantity:1000)
+        Transaction.create(price:cur.price,member_id:m.id,currency_id:cur.id,serial:rand(100000..999999),quantity:1000)
     end
 end
 
